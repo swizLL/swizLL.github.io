@@ -39,14 +39,14 @@
 <main class="content" role="main">
   <article class="post">
     <span class="post-meta">
-      <time datetime="2017-09-16T17:03:31.187Z" itemprop="datePublished">
+      <time datetime="2017-09-16T17:30:00.666Z" itemprop="datePublished">
           2017-09-17
       </time>
     
 </span>
     <h1 class="post-title">c++primer 学习笔记（一）--编译运行以及文件结束符</h1>
     <section class="post-content">
-      <p>以下代码是c++primer中关于if语句的一段代码，在最开始的运行过程中，出现了无法将最后一组数以及其重复次数输出的问题，即while循环外的代码无法正常运行。<br>查询后发先，是程序在运行时没有跳出while循环，需要在数字后添加一个停止符——ctrl+z，即可跳出循环，但运行后又发现加上ctrl+z后，程序直接停止运行，并没有输出值。<br>后来发现程序需要编译后再运行，即“build and run”后，即可达到书上的效果。</p>
+      <p>以下代码是c++primer中关于if语句的一段代码，在最开始的运行过程中，出现了无法将最后一组数以及其重复次数输出的问题，即while循环外的代码无法正常运行。<br>查询后发先，是程序在运行时没有跳出while循环，需要在数字后添加一个停止符——ctrl+z（windows），Linux下是ctrl+d，即可跳出循环，但运行后又发现加上ctrl+z后，程序直接停止运行，并没有输出值。<br>后来发现程序需要编译后再运行，即build-&gt;build and run后，即可达到书上的效果。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line"> using namespace std;</div><div class="line"></div><div class="line"> int main()</div><div class="line"> &#123;</div><div class="line">     int currVal=0,val=0;</div><div class="line">     if(std::cin&gt;&gt;currVal)&#123;</div><div class="line">             int cnt=1;</div><div class="line">         while(std::cin&gt;&gt;val)&#123;</div><div class="line">             if(val==currVal)&#123;</div><div class="line">                 ++cnt;</div><div class="line">             &#125;</div><div class="line">             else&#123;</div><div class="line">                 std::cout&lt;&lt;currVal&lt;&lt;&quot;ocurrs&quot;&lt;&lt;cnt&lt;&lt;&quot;times&quot;&lt;&lt;std::endl;</div><div class="line">                 currVal=val;</div><div class="line">                 cnt=1;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">         std::cout&lt;&lt;currVal&lt;&lt;&quot;ocurrs&quot;&lt;&lt;cnt&lt;&lt;&quot;times&quot;&lt;&lt;std::endl;</div><div class="line">     &#125;</div><div class="line">     return 0;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <p>好好学习c++，加油。</p>
 
@@ -75,14 +75,10 @@
   </article>
   <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2017/09/17/c++learning2/">
-        ← c++primer 学习笔记（二）--头文件引用
-    </a>
-    
     <span class="page-number">•</span>
     
-    <a class="older-posts" href="/2017/09/17/hello-world/">
-        我的第一篇博客！！！ →
+    <a class="older-posts" href="/2017/09/17/c++learning2/">
+        c++primer 学习笔记（二）--头文件引用 →
     </a>
     
 </nav>
