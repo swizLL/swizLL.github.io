@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>&lt;&lt;c++primer&gt;&gt;学习笔记（一）--编译运行以及文件结束符 | swizLL Code</title>
+  <title>c++primer 学习笔记（一）--编译运行以及文件结束符 | swizLL Code</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -39,14 +39,15 @@
 <main class="content" role="main">
   <article class="post">
     <span class="post-meta">
-      <time datetime="2017-09-16T16:24:04.208Z" itemprop="datePublished">
+      <time datetime="2017-09-16T16:37:00.204Z" itemprop="datePublished">
           2017-09-17
       </time>
     
 </span>
-    <h1 class="post-title"><<c++primer>>学习笔记（一）--编译运行以及文件结束符</h1>
+    <h1 class="post-title">c++primer 学习笔记（一）--编译运行以及文件结束符</h1>
     <section class="post-content">
-      <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line"> using namespace std;</div><div class="line"></div><div class="line"> int main()</div><div class="line"> &#123;</div><div class="line">     int currVal=0,val=0;</div><div class="line">     if(std::cin&gt;&gt;currVal)&#123;</div><div class="line">             int cnt=1;</div><div class="line">         while(std::cin&gt;&gt;val)&#123;</div><div class="line">             if(val==currVal)&#123;</div><div class="line">                 ++cnt;</div><div class="line">             &#125;</div><div class="line">             else&#123;</div><div class="line">                 std::cout&lt;&lt;currVal&lt;&lt;&quot;ocurrs&quot;&lt;&lt;cnt&lt;&lt;&quot;times&quot;&lt;&lt;std::endl;</div><div class="line">                 currVal=val;</div><div class="line">                 cnt=1;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">         std::cout&lt;&lt;currVal&lt;&lt;&quot;ocurrs&quot;&lt;&lt;cnt&lt;&lt;&quot;times&quot;&lt;&lt;std::endl;</div><div class="line">     &#125;</div><div class="line">     return 0;</div><div class="line"> &#125;</div><div class="line">以上代码是c++primer中关于if语句的一段代码，在最开始的运行过程中，出现了无法将最后一组数以及其重复次数输出的问题，即while循环外的代码无法正常运行。</div><div class="line">查询后发先，是程序在运行时没有跳出while循环，需要在数字后添加一个停止符——ctrl+z，即可跳出循环，但运行后又发现加上ctrl+z后，程序直接停止运行，并没有输出值。</div><div class="line">后来发现程序需要编译后再运行，即“build and run”后，即可达到书上的效果。</div></pre></td></tr></table></figure>
+      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line"> using namespace std;</div><div class="line"></div><div class="line"> int main()</div><div class="line"> &#123;</div><div class="line">     int currVal=0,val=0;</div><div class="line">     if(std::cin&gt;&gt;currVal)&#123;</div><div class="line">             int cnt=1;</div><div class="line">         while(std::cin&gt;&gt;val)&#123;</div><div class="line">             if(val==currVal)&#123;</div><div class="line">                 ++cnt;</div><div class="line">             &#125;</div><div class="line">             else&#123;</div><div class="line">                 std::cout&lt;&lt;currVal&lt;&lt;&quot;ocurrs&quot;&lt;&lt;cnt&lt;&lt;&quot;times&quot;&lt;&lt;std::endl;</div><div class="line">                 currVal=val;</div><div class="line">                 cnt=1;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">         std::cout&lt;&lt;currVal&lt;&lt;&quot;ocurrs&quot;&lt;&lt;cnt&lt;&lt;&quot;times&quot;&lt;&lt;std::endl;</div><div class="line">     &#125;</div><div class="line">     return 0;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>以上代码是c++primer中关于if语句的一段代码，在最开始的运行过程中，出现了无法将最后一组数以及其重复次数输出的问题，即while循环外的代码无法正常运行。<br>查询后发先，是程序在运行时没有跳出while循环，需要在数字后添加一个停止符——ctrl+z，即可跳出循环，但运行后又发现加上ctrl+z后，程序直接停止运行，并没有输出值。<br>后来发现程序需要编译后再运行，即“build and run”后，即可达到书上的效果。</p>
 
     </section>
     <footer class="post-footer">
@@ -75,7 +76,7 @@
     
     <span class="page-number">•</span>
     
-    <a class="older-posts" href="/2017/09/14/hello-world/">
+    <a class="older-posts" href="/2017/09/17/hello-world/">
         Hello World →
     </a>
     
