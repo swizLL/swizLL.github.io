@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>c++primer 学习笔记（三）--类型的转换 | swizLL Code</title>
+  <meta name="description" content="From small beginnings comes great things" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="swizLL Code">
+
+  
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <header class="site-head"  style="background-image: url(https://swizll.github.io/image/background2.png)" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="https://swizll.github.io/image/logo.png" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">swizLL Code</h1>
+            <h2 class="blog-description">From small beginnings comes great things</h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2017-09-17T07:53:31.272Z" itemprop="datePublished">
+          2017-09-17
+      </time>
+    
+</span>
+    <h1 class="post-title">c++primer 学习笔记（三）--类型的转换</h1>
+    <section class="post-content">
+      <p>这是对下面那段代码的解读：<br>1、当我们把一个非布尔类型的值赋值给一个bool值时，若这个值不为0，则bool值的返回值为true，若这个值为0，则返回值为false。<br>2、当我问把一个bool类型的值赋值给一个非布尔值时，true则结果为1，false则结果为0。<br>3、因为在前面已经将i定义为了整数类型，所以将一个浮点类型复制给i时，系统自己做近似处理，只保留小数点之前的部分。但是尽量不要把浮点类型的数复制给证书类型，会发生错误。<br>4、如果将一个所占空间超过浮点类型容量的整数赋值给一个浮点类型，则精度可能损失。当一个长整型数转换为单精度浮点型时会出现精度损失，当一个长整型数转换为双精度浮点型时不会出现精度损失。<br>5、带符号类型：int，short，long，long long等整型，都为带符号类型，前面加上unsigned则变成了无符号类型。而字符型则分为char，signed char，unsigned char三种。其中char类型在程序中会表现为其余两种中的一种，具体是那种由编译器来决定。<br>6、在下面的代码中，我们赋值给了无符号类型一个超出他范围（8比特unsigned char表示0-255的值），输出结果是初始值对无符号类型表示数值总数取模后的余数。【(-1)%256 = (-1+256)%256=255%256=255】<br>取模运算时,对于负数,应该加上被除数的整数倍,使结果大于或等于0之后,再进行运算。<br>7、当我们赋给带符号类型一个超出它表示范围的值时（8比特signed char鄙视-128-127的值），结果是未定义，可能继续工作，可能崩溃，也可能生成垃圾数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bool b=42; //b为真</div><div class="line">int i=b; //i的值为1</div><div class="line">i=3.14; //i的值为3</div><div class="line">double pi=i; //pi的值为3.0</div><div class="line">unsigned char c=-1; //假设char占8比特，c的值为255</div><div class="line">signed char c2=256; //假设char占8比特，c2的值是未定义的</div></pre></td></tr></table></figure>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>swizLL</h4>
+    <p>From small beginnings comes great things.</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://swizLL.github.io/2017/09/17/c++learning3/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://swizLL.github.io/2017/09/17/c++learning3/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://swizLL.github.io/2017/09/17/c++learning3/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/2017/09/17/c++learning1/">
+        c++primer 学习笔记（一）--编译运行以及文件结束符 →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">swizLL Code</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+
+
+
+</body>
+</html>
