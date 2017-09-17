@@ -39,17 +39,17 @@
 <main class="content" role="main">
   <article class="post">
     <span class="post-meta">
-      <time datetime="2017-09-17T09:37:58.838Z" itemprop="datePublished">
+      <time datetime="2017-09-17T09:46:29.927Z" itemprop="datePublished">
           2017-09-17
       </time>
     
 </span>
     <h1 class="post-title">c++primer 学习笔记（四）--含有无符号类型的表达式</h1>
     <section class="post-content">
-      <p>无符号类型的数据不可能为负值，所以当一个无符号类型的数据在操作中将负数转换成无符号数进行运算时，结果等于这个负数加上无符号数的模。<br>当从无符号数中减去一个值时 ，不管这个值是不是无符号数，我们都必须确保结果不会是一个赋值。<br>在写循环的时候，无符号数不会小于零的这一事实会对循环写法产生很大的影响。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    for (unsigned u=10;u&gt;=0;--u)&#123;</div><div class="line">        std::cout&lt;&lt;u&lt;&lt;std::endl;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      <p>  无符号类型的数据不可能为负值，所以当一个无符号类型的数据在操作中将负数转换成无符号数进行运算时，结果等于这个负数加上无符号数的模。当从无符号数中减去一个值时 ，不管这个值是不是无符号数，我们都必须确保结果不会是一个赋值。在写循环的时候，无符号数不会小于零的这一事实会对循环写法产生很大的影响。所以在循环中使用到无符号数时，一定要注意循环的写法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">using namespace std;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    for (unsigned u=10;u&gt;=0;--u)&#123;</div><div class="line">        std::cout&lt;&lt;u&lt;&lt;std::endl;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这个循环将会变成一个死循环，因为当运行到u=0时，再减一使u=-1,此时-1不满足无符号数的要求，会自动转换成一个合法的无符号数，即结果等于这个负数加上无符号数的模。<br>一种解决方法是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    unsigned u=11;</div><div class="line">   while(u&gt;0)&#123;</div><div class="line">    --u;</div><div class="line">    std::cout&lt;&lt;u&lt;&lt;std::endl;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">using namespace std;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    unsigned u=11;</div><div class="line">   while(u&gt;0)&#123;</div><div class="line">    --u;</div><div class="line">    std::cout&lt;&lt;u&lt;&lt;std::endl;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>使用这个while循环，先将数字–后，再输出。这样当运行到u=1,–u后输出u=0。再循环的时候，u=0不满足循环条件，不会进入循环，则不会出现u&lt;0的情况使u不满足无符号数的要求。</p>
 <p>值得注意的是：一定不能混用带符号类型及无符号类型，因为带符号类型会自动转换为无符号数。这样出现负数则会输出异常结果。</p>
 
@@ -80,8 +80,8 @@
     
     <span class="page-number">•</span>
     
-    <a class="older-posts" href="/2017/09/17/c++learning3/">
-        c++primer 学习笔记（三）--类型的转换 →
+    <a class="older-posts" href="/2017/09/17/c++learning2/">
+        c++primer 学习笔记（二）--头文件引用 →
     </a>
     
 </nav>

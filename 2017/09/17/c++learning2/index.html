@@ -39,14 +39,15 @@
 <main class="content" role="main">
   <article class="post">
     <span class="post-meta">
-      <time datetime="2017-09-16T17:26:08.125Z" itemprop="datePublished">
+      <time datetime="2017-09-17T09:43:39.764Z" itemprop="datePublished">
           2017-09-17
       </time>
     
 </span>
     <h1 class="post-title">c++primer 学习笔记（二）--头文件引用</h1>
     <section class="post-content">
-      <p>在学习c++primer的过程中，关于头文件的引用我遇到了很多问题，Sales_item是一个在头文件中”Sales_item.h”中定义的类，如果不将头文件引用进来，则无法使用这个类。要想使用头文件，首先头文件需要在工程中，<br>其次，需要使用#include “Sales_item.h”将头文件包含进来。#include+尖括号（&lt;&gt;）包含的是来自于标准库的头文件，#include+双引号（””）包含的是来自于非标准库的头文件。<br>以下是c++primer中使用Sales_item这个类的代码。</p>
+      <p>  在学习c++primer的过程中，关于头文件的引用我遇到了很多问题，Sales_item是一个在头文件中”Sales_item.h”中定义的类，如果不将头文件引用进来，则无法使用这个类。要想使用头文件，首先头文件需要在工程中。其次，需要使用#include “Sales_item.h”将头文件包含进来。#include+尖括号（&lt;&gt;）包含的是来自于标准库的头文件，#include+双引号（””）包含的是来自于非标准库的头文件。</p>
+<p>  以下是c++primer中使用Sales_item这个类的代码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &quot;Sales_item.h&quot;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    Sales_item book;</div><div class="line">    std::cin &gt;&gt; book;</div><div class="line">    std::cout &lt;&lt; book &lt;&lt; std::endl;</div><div class="line">    return 0;</div><div class="line">&lt;span style=&quot;font-size:14px;&quot;&gt;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure>
 <p>在codeblocks中引用头文件需要在工程中右键，然后Add files,然后找到要添加的头文件，点击后添加。但是在添加头文件再运行后，发现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#include &quot;Sales_item.h</div></pre></td></tr></table></figure></p>
 <p>还是会报错，提示工程中没有此文件。查询后发现解决方法：Progect-&gt;build options-&gt;Search directories，点击add，将对应头文件路径加入。然后再按照添加头文件的方法将头文件添加后即可正常运行，实现书上的效果。</p>
@@ -76,14 +77,14 @@
   </article>
   <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2017/09/17/c++learning1/">
-        ← c++primer 学习笔记（一）--编译运行以及文件结束符
+    <a class="newer-posts" href="/2017/09/17/c++learning4/">
+        ← c++primer 学习笔记（四）--含有无符号类型的表达式
     </a>
     
     <span class="page-number">•</span>
     
-    <a class="older-posts" href="/2017/09/17/hello-world/">
-        我的第一篇博客！！！ →
+    <a class="older-posts" href="/2017/09/17/c++learning3/">
+        c++primer 学习笔记（三）--类型的转换 →
     </a>
     
 </nav>
